@@ -1,9 +1,10 @@
+### DO NOT CHANGE SETTINGS ###
 version: "3.3"
 
 services:
   ansible:
-    container_name: "ansible"
-    hostname: "ansible"
     build: .
+    container_name: "ansible_container"
+    hostname: "ansible_host"
     ports:
       - "8080:8080"

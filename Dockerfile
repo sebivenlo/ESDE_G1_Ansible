@@ -1,3 +1,4 @@
+### DO NOT CHANGE SETTINGS ###
 FROM centos:8
 
 RUN dnf makecache; \
