@@ -1,6 +1,7 @@
 ### DO NOT CHANGE SETTINGS ###
 version: "3.3" 
 
+# TODO expose configuration folder to ansible container with ansible playbook and etc?
 services:
   ansible:
     build: .
