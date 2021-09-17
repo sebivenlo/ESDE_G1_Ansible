@@ -4,22 +4,44 @@ version: "3.3"
 # TODO expose configuration folder to ansible container with ansible playbook and etc?
 services:
   ansible:
-    build: .
+    build:
+      context: ./
+      dockerfile: Dockerfile
     container_name: ansible_container
     hostname: ansible_host
     ports:
       - 8080:8080
+    volumes:
+      - ./configuration/:/ansible/configuration
+      - ./ansible.cfg:/etc/ansible/ansible.cfg
+      - ./hosts:/etc/ansible/hosts
     networks: 
       internal:
 
-  postgres:
-    image: postgres:latest
-    container_name: postgres_container
-    hostname: postgres_host
+  test:
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
+    container_name: test_container
+    hostname: test_container
     ports:
-      - 5432:5432
-    environment:
-      POSTGRES_PASSWORD: example
+      - 22:22
+    networks:
+      internal:
+      
+  # postgres:
+  #   image: postgres:latest
+  #   container_name: postgres_container
+  #   hostname: postgres_host
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     POSTGRES_PASSWORD: example
+  #   networks:
+  #     internal:
+  #   # deploy:
+  #   #   mode: replicated
+  #   #   replicas: 10
 
 networks: 
   internal:

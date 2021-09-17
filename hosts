@@ -1,0 +1,2 @@
+[database]
+test_container ansible_connection=ssh ansible_user=workshop ansible_password=workshop

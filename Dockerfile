@@ -5,4 +5,5 @@ RUN dnf makecache; \
     dnf install epel-release -y; \
     dnf makecache; \
     dnf install ansible -y; \
+    dnf install openssh-clients -y; \
     ansible --version
