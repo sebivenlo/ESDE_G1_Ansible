@@ -4,3 +4,7 @@
   tasks:
     - name: test connection
       ping:
+  tasks: 
+    - name: print statement
+      ansible.builtin.debug: 
+        msg: Hello world!

@@ -5,7 +5,7 @@ version: "3.3"
 services:
   ansible:
     build:
-      context: ./
+      context: ./ansible/
       dockerfile: Dockerfile
     container_name: ansible_container
     hostname: ansible_host
@@ -18,17 +18,50 @@ services:
     networks: 
       internal:
 
-  test:
+  test1:
     build:
       context: ./database/
       dockerfile: Dockerfile
-    container_name: test_container
-    hostname: test_container
+    container_name: test_container_1
+    hostname: test_container_1
     ports:
       - 22:22
     networks:
       internal:
-      
+
+  test2:
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
+    container_name: test_container_2
+    hostname: test_container_2
+    ports:
+      - 22:22
+    networks:
+      internal:
+
+  test3:
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
+    container_name: test_container_3
+    hostname: test_container_3
+    ports:
+      - 22:22
+    networks:
+      internal:
+
+  test4:
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
+    container_name: test_container_4
+    hostname: test_container_4
+    ports:
+      - 22:22
+    networks:
+      internal:
+
   # postgres:
   #   image: postgres:latest
   #   container_name: postgres_container
