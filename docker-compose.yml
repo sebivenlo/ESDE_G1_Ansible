@@ -20,7 +20,7 @@ services:
 
   test1:
     build:
-      context: ./database/
+      context: ./test/
       dockerfile: Dockerfile
     container_name: test_container_1
     hostname: test_container_1
@@ -31,7 +31,7 @@ services:
 
   test2:
     build:
-      context: ./database/
+      context: ./test/
       dockerfile: Dockerfile
     container_name: test_container_2
     hostname: test_container_2
@@ -42,7 +42,7 @@ services:
 
   test3:
     build:
-      context: ./database/
+      context: ./test/
       dockerfile: Dockerfile
     container_name: test_container_3
     hostname: test_container_3
@@ -53,7 +53,7 @@ services:
 
   test4:
     build:
-      context: ./database/
+      context: ./test/
       dockerfile: Dockerfile
     container_name: test_container_4
     hostname: test_container_4
@@ -62,19 +62,20 @@ services:
     networks:
       internal:
 
-  # postgres:
-  #   image: postgres:latest
-  #   container_name: postgres_container
-  #   hostname: postgres_host
-  #   ports:
-  #     - 5432:5432
-  #   environment:
-  #     POSTGRES_PASSWORD: example
-  #   networks:
-  #     internal:
-  #   # deploy:
-  #   #   mode: replicated
-  #   #   replicas: 10
+  mongo:
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
+    container_name: mongo_container
+    hostname: mongo_container
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: test
+    networks:
+      internal: 
 
 networks: 
   internal:

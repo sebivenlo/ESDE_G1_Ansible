@@ -6,4 +6,5 @@ RUN dnf makecache; \
     dnf makecache; \
     dnf install ansible -y; \
     dnf install openssh-clients -y; \
-    ansible --version
+    ansible --version; \
+    ansible-galaxy collection install community.mongodb

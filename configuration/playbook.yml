@@ -8,3 +8,11 @@
     - name: print statement
       ansible.builtin.debug: 
         msg: Hello world!
+  tasks:
+    - name: create database
+      community.mongodb.mongodb_user:
+        login_host: mongo_container
+        login_user: root
+        login_password: example
+        database: admin
+        name: root
