@@ -31,9 +31,9 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 1. [Docker Engine](https://docs.docker.com/engine/install/)
 2. [Docker Compose](https://docs.docker.com/compose/install/)
 
-### Project architectures
+## Project architectures
 
-#### File layout
+### File layout
 The following file structure is used to get you a general idea of which folders and files are located in which folders.
 
 ```
