@@ -64,6 +64,10 @@ Crucial to Ansible is its playbook file. This is the location where you will be 
 #### hosts
 Another crucial part of Ansible is the hosts (inventory) file. In this inventory file, we defined hosts on which the ansible-playbook tasks will be executed on. You do not have to fiddle around with these, we will take care of the configuration.
 
+## Assignment workflow
+
+[assignment workflow](documentation/images/Architecture.drawio.png)
+
 <!-- ### How to run?
 
 #### Initializing the docker compose file with its services
