@@ -34,10 +34,11 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 ### Project architectures
 
 #### File layout
+The following file structure is used to get you a general idea of which folders and files are located in which folders.
 
 ```
 ESDE_G1_Ansible
-    configuration
+    configuration 
         roles
             common
                 tasks
@@ -51,6 +52,17 @@ ESDE_G1_Ansible
     docker-compose.yml
     hosts
 ```
+
+There are some important files that need mentioning while making the assignments.
+
+#### docker-compose.yml
+We have created a docker compose file that allows you to simply work on the Ansible assignments on your current host machine, without worrying about the more technical matters. In this Docker-compose file we defined a set of services that are started within containers after executing the "docker-compose up" command
+
+#### playbook.yml
+Crucial to Ansible is its playbook file. This is the location where you will be making your assignments. The file contains comments with todo's that are self-explanatory.
+
+#### hosts
+Another crucial part of Ansible is the hosts (inventory) file. In this inventory file, we defined hosts on which the ansible-playbook tasks will be executed on. You do not have to fiddle around with these, we will take care of the configuration.
 
 <!-- ### How to run?
 
