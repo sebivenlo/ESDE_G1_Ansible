@@ -31,6 +31,27 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 1. [Docker Engine](https://docs.docker.com/engine/install/)
 2. [Docker Compose](https://docs.docker.com/compose/install/)
 
+### Project architectures
+
+#### File layout
+
+```
+ESDE_G1_Ansible
+    configuration
+        roles
+            common
+                tasks
+        playbook.yml
+    dockerfiles
+        ansible
+            Dockerfile
+        database
+            Dockerfile
+    ansible.cfg
+    docker-compose.yml
+    hosts
+```
+
 <!-- ### How to run?
 
 #### Initializing the docker compose file with its services
