@@ -4,7 +4,11 @@
 
 [Ansible](https://www.ansible.com/) is a tool that encapsulates workflow ochestration, configuration management, provisioning, and application deployment in a simplistic platform.
 
+This workshop will introduce you to the automation tool [Ansible](https://www.ansible.com/), it will also go through some important Ansible topics and finally assign you some exercise in order for you to play around with the tool.
+
 ### Table of contents
+{:.no_toc}
+---
 
 1. 
 {:toc}
@@ -12,6 +16,7 @@
 ## Introduction
 
 ## Prerequisites
+As the workshop is setup in a Docker environment 
 
 ## Installation
 
