@@ -1,12 +1,16 @@
-### Abstract
+# Enterprise System Design Architecture - Ansible workshop (G1)
 
-### Table of contents
+[Ansible](https://www.ansible.com/) is a tool that encapsulates workflow ochestration, configuration management, provisioning, and application deployment in a simplistic platform.
 
-### Introduction
+###Table of contents
 
-1. What is 
-2. asdasd
 {:toc}
+
+## Introduction
+
+## Prerequisites
+
+## Installation
 
 ## Ansible workshop
 
