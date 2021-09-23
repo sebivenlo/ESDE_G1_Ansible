@@ -56,7 +56,7 @@ ESDE_G1_Ansible
 There are some important files that need mentioning while making the assignments.
 
 #### docker-compose.yml
-We have created a docker compose file that allows you to simply work on the Ansible assignments on your current host machine, without worrying about the more technical matters. In this Docker-compose file we defined a set of services that are started within containers after executing the "docker-compose up" command
+We have created a docker compose file that allows you to simply work on the Ansible assignments on your current host machine, without worrying about the more technical matters. In this Docker-compose file we defined a set of services that are started within containers after executing the "docker-compose up" command. Each service defined within the docker-compose file uses a Dockerfile in order to initialize the containers on which they are ran.
 
 #### playbook.yml
 Crucial to Ansible is its playbook file. This is the location where you will be making your assignments. The file contains comments with todo's that are self-explanatory.
