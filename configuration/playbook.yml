@@ -41,11 +41,6 @@
       set_fact:
         data: "{result.stdout}}"
 
-    - name: Add index.html file
-      template:
-        src: /usr/ubuntu/webserver/index.html
-        dest: /usr/share/nginx/html/index.html
-
     - name: Start Nginx
       service:
         name: nginx
