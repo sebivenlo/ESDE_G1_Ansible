@@ -43,8 +43,13 @@
 
     - name: Add index.html file
       template:
-        src: ./index.html
+        src: /usr/ubuntu/webserver/index.html
         dest: /usr/share/nginx/html/index.html
+
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
 
   # tasks:
   #   - name: create database
