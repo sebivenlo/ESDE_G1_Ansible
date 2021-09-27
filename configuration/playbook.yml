@@ -19,6 +19,14 @@
         name: apache2
         state: absent
 
+    - name: Read file
+      shell: cat hello.txt
+      register: result
+    
+    - name: Print file
+      set_fact:
+        data: "{{result.stdout}}"
+
   # tasks:
   #   - name: create database
   #     community.mongodb.mongodb_user:
