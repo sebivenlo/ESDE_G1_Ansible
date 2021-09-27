@@ -15,7 +15,6 @@ services:
       - ./configuration/:/ansible/configuration
       - ./ansible.cfg:/etc/ansible/ansible.cfg
       - ./hosts:/etc/ansible/hosts
-      - ./webserver/:/usr/ubuntu/webserver
     networks: 
       internal:
 
