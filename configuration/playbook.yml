@@ -1,31 +1,50 @@
 ---
-- hosts: all
+- hosts: webserver
   become: yes
 
-  tasks:
-    - name: test connection
-      ping:
+  # tasks:
+    # - name: test connection
+    #   ping:
 
-    - name: print statement
-      ansible.builtin.debug: 
-        msg: Hello world!
+    # - name: print statement
+    #   ansible.builtin.debug: 
+    #     msg: Hello world!
 
-    - name: install apache2 httpd
-      apt: 
-        name: apache2
+    # - name: install apache2 httpd
+    #   apt: 
+    #     name: apache2
         
-    - name: uninstall apache2 httpd
-      apt:
-        name: apache2
-        state: absent
+    # - name: uninstall apache2 httpd
+    #   apt:
+    #     name: apache2
+    #     state: absent
 
-    - name: Read file
-      shell: cat hello.txt
+    # - name: Read file
+    #   shell: cat hello.txt
+    #   register: result
+    
+    # - name: Print file
+    #   set_fact:
+    #     data: "{{result.stdout}}"
+
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Find active directory
+      shell: pwd
       register: result
     
-    - name: Print file
+    - name: Print active directory
       set_fact:
-        data: "{{result.stdout}}"
+        data: "{result.stdout}}"
+
+    - name: Add index.html file
+      template:
+        src: ./index.html
+        dest: /usr/share/nginx/html/index.html
 
   # tasks:
   #   - name: create database
