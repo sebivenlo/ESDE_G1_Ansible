@@ -1,0 +1,8 @@
+---
+- name: Read file
+  shell: cat hello.txt
+  register: result
+
+- name: Print file
+  debug:
+    msg: "{{ result.stdout }}"

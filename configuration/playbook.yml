@@ -1,5 +1,5 @@
 ---
-- hosts: webserver
+- hosts: all
   become: yes
 
   # tasks:
@@ -19,32 +19,16 @@
     #     name: apache2
     #     state: absent
 
-    # - name: Read file
-    #   shell: cat hello.txt
-    #   register: result
-    
-    # - name: Print file
-    #   set_fact:
-    #     data: "{{result.stdout}}"
-
   tasks:
-    - name: Install Nginx
-      apt:
-        name: nginx
-        state: present
+    - name: Print contents of a file
+      when: inventory_hostname in groups['default']
+      import_role:
+        name: printer
 
-    - name: Find active directory
-      shell: pwd
-      register: result
-    
-    - name: Print active directory
-      set_fact:
-        data: "{result.stdout}}"
-
-    - name: Start Nginx
-      service:
-        name: nginx
-        state: started
+    - name: Install and start nginx
+      when: inventory_hostname in groups['webserver']
+      import_role:
+        name: webserver
 
   # tasks:
   #   - name: create database
