@@ -21,20 +21,30 @@
 
   tasks:
     - name: Print contents of a file
-      when: inventory_hostname in groups['default']
+      when: inventory_hostname in groups['default_container']
       import_role:
         name: printer
 
-    - name: Install and start nginx
-      when: inventory_hostname in groups['webserver']
-      import_role:
-        name: webserver
+    # - name: Install and start nginx
+    #   when: inventory_hostname in groups['web_container']
+    #   import_role:
+    #     name: webserver
+    
+    # - name: Pull and execute Docker container
+    #   when: inventory_hostname in groups['git_container']
+    #   import_role:
+    #     name: git
 
-  # tasks:
-  #   - name: create database
-  #     community.mongodb.mongodb_user:
-  #       login_host: mongo_container
-  #       login_user: root
-  #       login_password: example
-  #       database: admin
-  #       name: root
+    # - name: Install and setup PostgreSQL on host
+    #   when: inventory_hostname in groups['database']
+    #   import_role:
+    #     name: database
+    #     tasks_from: install
+
+    # - name: PostgreSQL database interaction
+    #   when: inventory_hostname in groups['database']
+    #   become: yes
+    #   become_user: postgres
+    #   import_role:
+    #     name: database
+    #     tasks_from: main

@@ -1,4 +1,10 @@
 ---
+- name: Create a file called "hello.txt"
+  shell: touch hello.txt
+
+- name: Add text "hello world" to file "hello.txt"
+  shell: echo "hello world!" >> hello.txt
+
 - name: Read file
   shell: cat hello.txt
   register: result

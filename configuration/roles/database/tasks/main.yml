@@ -1,0 +1,27 @@
+---
+- name: Create a new database with name "acme"
+  postgresql_db:
+    name: acme
+
+- name: Create user_table table with columns id, first_name and last_name
+  postgresql_table:
+    db: acme
+    name: user_table
+    columns:
+    - id bigserial primary key
+    - first_name text
+    - last_name text
+
+- name: Insert query to user_table in db acme
+  postgresql_query:
+    db: acme
+    query: INSERT INTO user_table(id, first_name, last_name) VALUES(1, 'Guus', 'Damen') ON CONFLICT DO NOTHING
+
+- name: Select all users from user_table in db acme
+  postgresql_query:
+    db: acme
+    query: SELECT * FROM user_table
+  register: query_result
+
+- debug:
+    var: query_result

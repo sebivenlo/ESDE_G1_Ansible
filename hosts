@@ -1,8 +1,11 @@
-[default]
+[default_container]
 test_container_1 ansible_connection=ssh ansible_user=workshop ansible_password=workshop
-test_container_2 ansible_connection=ssh ansible_user=workshop ansible_password=workshop
-test_container_3 ansible_connection=ssh ansible_user=workshop ansible_password=workshop
-; mongo_container ansible_connection=ssh ansible_user=workshop ansible_password=workshop ansible_python_interpreter=/usr/bin/python2.7
 
-[webserver]
+[database]
+test_container_2 ansible_connection=ssh ansible_user=workshop ansible_password=workshop
+
+[git_container]
+test_container_3 ansible_connection=ssh ansible_user=workshop ansible_password=workshop
+
+[web_container]
 test_container_4 ansible_connection=ssh ansible_user=workshop ansible_password=workshop

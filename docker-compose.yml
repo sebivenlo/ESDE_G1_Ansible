@@ -31,18 +31,21 @@ services:
 
   test2:
     build:
-      context: ./dockerfiles/test/
+      context: ./dockerfiles/database/
       dockerfile: Dockerfile
     container_name: test_container_2
     hostname: test_container_2
     ports:
       - 22:22
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: workshop
     networks:
       internal:
 
   test3:
     build:
-      context: ./dockerfiles/test/
+      context: ./dockerfiles/git/
       dockerfile: Dockerfile
     container_name: test_container_3
     hostname: test_container_3
