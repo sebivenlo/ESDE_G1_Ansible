@@ -65,20 +65,5 @@ services:
     networks:
       internal:
 
-  # mongo:
-  #   build:
-  #     context: ./dockerfiles/database/
-  #     dockerfile: Dockerfile
-  #   container_name: mongo_container
-  #   hostname: mongo_container
-  #   ports:
-  #     - 27017:27017
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: root
-  #     MONGO_INITDB_ROOT_PASSWORD: example
-  #     MONGO_INITDB_DATABASE: test
-  #   networks:
-  #     internal: 
-
 networks: 
   internal:

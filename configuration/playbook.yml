@@ -16,11 +16,6 @@
       name: printer
     tags: printer
 
-    # - name: Print contents of a file
-    #   when: inventory_hostname in groups['default_container']
-    #   import_role:
-    #     name: printer
-
     # - name: Install and start nginx
     #   when: inventory_hostname in groups['web_container']
     #   import_role:

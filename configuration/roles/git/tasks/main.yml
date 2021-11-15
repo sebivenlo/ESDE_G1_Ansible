@@ -57,13 +57,3 @@
     npm start
   args:
     chdir: "/apps/NodeApp/"
-
-# - name: Validating the port is open
-#   tags: nodevalidate
-#   wait_for:
-#     host: "localhost"
-#     port: 3000
-#     delay: 10
-#     timeout: 30
-#     state: started
-#     msg: "NodeJS server is not running"
