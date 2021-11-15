@@ -2,28 +2,24 @@
 - hosts: all
   become: yes
 
-  # tasks:
-    # - name: test connection
-    #   ping:
-
-    # - name: print statement
-    #   ansible.builtin.debug: 
-    #     msg: Hello world!
-
-    # - name: install apache2 httpd
-    #   apt: 
-    #     name: apache2
-        
-    # - name: uninstall apache2 httpd
-    #   apt:
-    #     name: apache2
-    #     state: absent
-
   tasks:
-    - name: Print contents of a file
-      when: inventory_hostname in groups['default_container']
-      import_role:
-        name: printer
+# Assignment 1 - /roles/verification/tasks/main.yml
+  - name: Verify connection to host machines
+    import_role:
+      name: verification
+    tags: verification
+
+# Assignment 2 - /roles/printer/tasks/main.yml
+  - name: Print contents of a file
+    when: inventory_hostname in groups['default_container']
+    import_role:
+      name: printer
+    tags: printer
+
+    # - name: Print contents of a file
+    #   when: inventory_hostname in groups['default_container']
+    #   import_role:
+    #     name: printer
 
     # - name: Install and start nginx
     #   when: inventory_hostname in groups['web_container']
