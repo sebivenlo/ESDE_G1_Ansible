@@ -36,7 +36,7 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 ### File layout
 The following file structure is used to get you a general idea of which folders and files are located in which folders.
 
-[File layout]()
+[File layout](documentation/images/File_layout.png)
 
 There are some important files that need mentioning while making the assignments.
 
@@ -51,7 +51,7 @@ Another crucial part of Ansible is the hosts (inventory) file. In this inventory
 
 ## Assignment workflow
 
-[assignment workflow](documentation/images/File_layout.png)
+[assignment workflow](documentation/images/Architecture.drawio.png)
 
 <!-- ### How to run?
 
