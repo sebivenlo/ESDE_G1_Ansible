@@ -65,26 +65,42 @@ In order to get you going on the workshop itself, you can start by taking a look
 [assignment workflow](documentation/images/Assignment_workflow.svg)
 
 #### Clone repository
-Only once, you clone the repository using the command git clone 
-
+Only once, you clone the repository using the command:
 ```
-https://github.com/sebivenlo/ESDE_G1_Ansible.git
+git clone https://github.com/sebivenlo/ESDE_G1_Ansible.git
 ```
 
 #### Start docker service containers
-Only once, you start the docker services using the command
-
+Only once, you start the docker services using the command:
 ```
 docker-compose up --build -d
 ```
 
 #### Access ansible environment 
+Only once, you access the ansible docker container by using the command:
+```
+docker-compose run ansible
+```
 
 #### Change directory
+Only once, you change directory by using the command:
+```
+cd ansible/configuration
+```
 
 #### Write assignments
+Every single time you are working on an assignment in a file called "main.yml", which are located in the /roles/ directory. Start off by looking at the main file called "playbook.yml", this is your starting point. From here you will be directed to the assignments
 
 #### Execute ansible-playbook command
+Every single time you are ready to test your assigment you run the command:
+```
+ansible-playbook playbook.yml --extra-vars "ansible_sudo_pass=workshop"
+```
+If you want to shorten the duration of the execution, you can also run the command:
+```
+ansible-playbook playbook.yml --extra-vars "ansible_sudo_pass=workshop" --tags="<tag_name>"
+```
+where the tags flag is the assignment you are currently working on (either verification, printer, webserver or database)
 
 #### Validate output
 
