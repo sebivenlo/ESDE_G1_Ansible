@@ -33,6 +33,13 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 
 ## Project architectures
 
+### General architecture
+As we will be using docker to setup the complete architecture a small architectural image is shown below:
+
+[General Architecture](documentation/images/Architecture.svg)
+
+What can be seen in this abstract architecture image is that a single "Docker compose" file is used to instantiate all services that are neccessary for the assignments. It makes sure that 4 containers are running for you to test on. Furthermore, there is an additional container called "ansible" that holds the Ansible environment. This will be the machine you will be working on mainly. Don't worry! it's all an automatic process.
+
 ### File layout
 The following file structure is used to get you a general idea of which folders and files are located in which folders.
 
@@ -49,11 +56,13 @@ Crucial to Ansible is its playbook file. This is the location where you will be 
 #### hosts
 Another crucial part of Ansible is the hosts (inventory) file. In this inventory file, we defined hosts on which the ansible-playbook tasks will be executed on. You do not have to fiddle around with these, we will take care of the configuration.
 
+#### ./roles/* directory
+The directory and "main.yml" located in the "roles" directory are the ones you should be working on.
+
 ## Assignment workflow
-In order to get you going on the workshop itself, you can start by taking a look at the image below
+In order to get you going on the workshop itself, you can start by taking a look at the image below. This image displays what the workflow of the assignment should be. It features the commands you should run in order to make the assignments (succesfully).
 
-[assignment workflow](documentation/images/Assignment_workflow.png)
-
+[assignment workflow](documentation/images/Assignment_workflow.svg)
 
 
 <!-- ### How to run?
