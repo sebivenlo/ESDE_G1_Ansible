@@ -89,7 +89,7 @@ cd ansible/configuration
 ```
 
 #### Write assignments
-Every single time you are working on an assignment in a file called "main.yml", which are located in the /roles/ directory. Start off by looking at the main file called "playbook.yml", this is your starting point. From here you will be directed to the assignments
+Every single time you are working on an assignment in a file called "main.yml", which are located in the /roles/ directory. Start off by looking at the main file called "playbook.yml", this is your starting point. From here you will be directed to the assignments. Each assignment has a goal, task and a link to the documentation. (The answers are not hard to find in the documentation)
 
 #### Execute ansible-playbook command
 Every single time you are ready to test your assigment you run the command:
@@ -103,21 +103,4 @@ ansible-playbook playbook.yml --extra-vars "ansible_sudo_pass=workshop" --tags="
 where the tags flag is the assignment you are currently working on (either verification, printer, webserver or database)
 
 #### Validate output
-
-<!-- ### How to run?
-
-#### Initializing the docker compose file with its services
-
-```
-(sudo) docker-compose up (--build) (-d)
-```
-#### Entering the Ansible docker container, where he ansible environment is setup
-```
-(sudo) docker-compose run ansible
-```
-
-### What now?
-You have now entered the ansible environment and can execute ansible commands. The standard ansible location with the folders is located on the docker container in the following directory:
-```
-/ansible/configuration/
-``` -->
+Once you have completed your assigment you should check the expected output with your own output.
