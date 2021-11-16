@@ -36,7 +36,7 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 ### File layout
 The following file structure is used to get you a general idea of which folders and files are located in which folders.
 
-[File layout](documentation/images/File_layout.png)
+[File layout](documentation/images/File_layout.svg)
 
 There are some important files that need mentioning while making the assignments.
 
@@ -50,8 +50,11 @@ Crucial to Ansible is its playbook file. This is the location where you will be 
 Another crucial part of Ansible is the hosts (inventory) file. In this inventory file, we defined hosts on which the ansible-playbook tasks will be executed on. You do not have to fiddle around with these, we will take care of the configuration.
 
 ## Assignment workflow
+In order to get you going on the workshop itself, you can start by taking a look at the image below
 
-[assignment workflow](documentation/images/Architecture.drawio.png)
+[assignment workflow](documentation/images/Assignment_workflow.png)
+
+
 
 <!-- ### How to run?
 
