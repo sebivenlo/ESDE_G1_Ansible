@@ -64,6 +64,29 @@ In order to get you going on the workshop itself, you can start by taking a look
 
 [assignment workflow](documentation/images/Assignment_workflow.svg)
 
+#### Clone repository
+Only once, you clone the repository using the command git clone 
+
+```
+https://github.com/sebivenlo/ESDE_G1_Ansible.git
+```
+
+#### Start docker service containers
+Only once, you start the docker services using the command
+
+```
+docker-compose up --build -d
+```
+
+#### Access ansible environment 
+
+#### Change directory
+
+#### Write assignments
+
+#### Execute ansible-playbook command
+
+#### Validate output
 
 <!-- ### How to run?
 
