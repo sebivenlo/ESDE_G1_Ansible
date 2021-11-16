@@ -10,7 +10,7 @@
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
 
 - name: Create a file called "hello.txt"
-  shell: touch hello.txt
+  ansible.builtin.shell: touch hello.txt
 
 # Correct output:
 # TASK [printer: <name>]
@@ -31,7 +31,7 @@
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
 
 - name: Add text "hello world" to file "hello.txt"
-  shell: echo "hello world!" >> hello.txt
+  ansible.builtin.shell: echo "hello world!" >> hello.txt
 
 # Correct output:
 # TASK [printer : <name>]
@@ -45,14 +45,14 @@
 # The goal is to learn about registered variables and how to use them in 
 # Ansible
 #
-# Your task is to use the "ansible.builtin.shell" in combination with 
-# variables
+# Your task is to use the "ansible.builtin.shell" module in combination 
+# with variables
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
 
 - name: Read file
-  shell: cat hello.txt
+  ansible.builtin.shell: cat hello.txt
   register: result
 
 # Correct output:
@@ -66,10 +66,13 @@
 #
 # The goal is to learn more about the applications of variables
 #
-# Your task is to print the registered variable into the terminal by using # the "ansible.builtin.shell" module in combination with a bracket notation
+# Your task is to print the registered variable into the terminal by using # the "ansible.builtin.debug" module in combination with a bracket notation
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html
 
 - name: Print file
-  debug:
+  ansible.builtin.debug:
     msg: "{{ result.stdout }}"
 
 # Correct output: 

@@ -16,26 +16,27 @@
       name: printer
     tags: printer
 
-    # - name: Install and start nginx
-    #   when: inventory_hostname in groups['web_container']
-    #   import_role:
-    #     name: webserver
+# Assignment 3 - /roles/webserver/tasks/main.yml
+  - name: Install and start nginx
+    when: inventory_hostname in groups['web_container']
+    import_role:
+      name: webserver
+    tags: webserver
     
-    # - name: Pull and execute Docker container
-    #   when: inventory_hostname in groups['git_container']
-    #   import_role:
-    #     name: git
+# No assignment to be found here!
+  - name: Install and setup PostgreSQL on host
+    when: inventory_hostname in groups['database']
+    import_role:
+      name: database
+      tasks_from: install
+    tags: database
 
-    # - name: Install and setup PostgreSQL on host
-    #   when: inventory_hostname in groups['database']
-    #   import_role:
-    #     name: database
-    #     tasks_from: install
-
-    # - name: PostgreSQL database interaction
-    #   when: inventory_hostname in groups['database']
-    #   become: yes
-    #   become_user: postgres
-    #   import_role:
-    #     name: database
-    #     tasks_from: main
+# Assignment 4 - /roles/database/tasks/main.yml
+  - name: PostgreSQL database interaction
+    when: inventory_hostname in groups['database']
+    become: yes
+    become_user: postgres
+    import_role:
+      name: database
+      tasks_from: main
+    tags: database
