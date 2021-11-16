@@ -36,22 +36,7 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 ### File layout
 The following file structure is used to get you a general idea of which folders and files are located in which folders.
 
-```
-ESDE_G1_Ansible
-    configuration 
-        roles
-            common
-                tasks
-        playbook.yml
-    dockerfiles
-        ansible
-            Dockerfile
-        database
-            Dockerfile
-    ansible.cfg
-    docker-compose.yml
-    hosts
-```
+[File layout]()
 
 There are some important files that need mentioning while making the assignments.
 
@@ -66,7 +51,7 @@ Another crucial part of Ansible is the hosts (inventory) file. In this inventory
 
 ## Assignment workflow
 
-[assignment workflow](documentation/images/Architecture.drawio.png)
+[assignment workflow](documentation/images/File_layout.png)
 
 <!-- ### How to run?
 
