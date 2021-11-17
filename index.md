@@ -2,7 +2,7 @@
 {:.no_toc}
 ---
 
-[Ansible](https://www.ansible.com/) is a tool that encapsulates workflow ochestration, configuration management, provisioning, and application deployment in a simplistic platform.
+[Ansible](https://www.ansible.com/) is a tool that encapsulates workflow orchestration, configuration management, provisioning, and application deployment in a simplistic platform.
 
 This workshop will introduce you to the automation tool [Ansible](https://www.ansible.com/), it will go through some important Ansible topics and finally assign you some exercise in order for you to play around with the tool.
 
