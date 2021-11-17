@@ -2,15 +2,16 @@
 # Assignment 2.1 - Create a file on target machine
 #
 # The goal of this assignment is to use another module called 
-# "ansible.builtin.shell" to execute a shell command on the target machine
+# "ansible.builtin.shell" to execute a shell command on the target machine.
 #
-# Your task is to make use of the "ansible.builtin.shell" module to create # a file on the target machine by executing a certain command. (If you do # not know the specific command to create a file on a unix device, ask us).
+# Your task is to make use of the "ansible.builtin.shell" module to create 
+# a text file (...txt) on the target machine by executing a certain command. (You can use the command "touch" to create a file.)
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
+- name: Create file tryAssignment.txt
+  ansible.builtin.shell: touch tryAssignmen.txt
 
-- name: Create a file called "hello.txt"
-  ansible.builtin.shell: touch hello.txt
 
 # Correct output:
 # TASK [printer: <name>]
@@ -21,17 +22,17 @@
 
 # Assignment 2.2 - Add text to the created file on target machine
 #
-# The goal of this assignment is to use yet another shell command to write # a string into the newly created file on the target machine
+# The goal of this assignment is to use yet another shell command to write 
+# a string into the newly created file on the target machine.
 #
 # Your task is to use the "ansible.builtin.shell" module to write 
-# something to the newly created file. (If you do not know the specific 
-# command to create a file on a unix device, ask us).
+# something to the newly created file. (You can use the command "echo [write the message here] >> [filename]" to write to a file.)
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
 
-- name: Add text "hello world" to file "hello.txt"
-  ansible.builtin.shell: echo "hello world!" >> hello.txt
+- name: Write to a file tryAssignment.txt
+  ansible.builtin.shell: echo "My message in the file!" >> tryAssignmen.txt
 
 # Correct output:
 # TASK [printer : <name>]
@@ -43,17 +44,20 @@
 # Assignment 2.3 - Read message from created file
 #
 # The goal is to learn about registered variables and how to use them in 
-# Ansible
+# Ansible.
 #
 # Your task is to use the "ansible.builtin.shell" module in combination 
-# with variables
+# with variables to register the contents of the created file into a variable.
+# In the next task you will print the variable and verify that both steps worked.
+# (You can use the command "cat [filename]" to print to console.)
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
 
-- name: Read file
-  ansible.builtin.shell: cat hello.txt
-  register: result
+- name: Run a shell command and register its output as a variable
+  ansible.builtin.shell: cat tryAssignmen.txt
+  register: secondvariablee
+  ignore_errors: true
 
 # Correct output:
 # TASK [printer : <name>]
@@ -66,19 +70,22 @@
 #
 # The goal is to learn more about the applications of variables
 #
-# Your task is to print the registered variable into the terminal by using # the "ansible.builtin.debug" module in combination with a bracket notation
+# Your task is to print the registered variable into the terminal by using 
+# the "ansible.builtin.debug" module in combination with a bracket notation
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html
 
-- name: Print file
+- name: Print the registered variable
   ansible.builtin.debug:
-    msg: "{{ result.stdout }}"
+    msg: I saved this as a variale - {{ secondvariablee.stdout_lines }} -
 
 # Correct output: 
 # TASK [printer : <name>]
 # ok: [test_container_1] => {
-#     "msg": "Test\nhello world!
+#     "msg": "[the message you put in the file]"
 # skipping: [test_container_2]
 # skipping: [test_container_3]
 # skipping: [test_container_4]
+#
+# !! If you can find your message somewhere in the output, it worked correctly !!

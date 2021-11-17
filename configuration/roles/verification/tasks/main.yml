@@ -4,13 +4,14 @@
 # The goal of this assignment is to verify the connection between the  
 # ansible host machine and the test containers.
 #
-# Your task is to use the "ansible.builtin.ping:" module to see if there's # a connection with the host machines. Don't think too hard, this 
+# Your task is to use the "ansible.builtin.ping:" module to see if there's 
+# a connection with the host machines. Don't think too hard, this 
 # assignment is very straight forward.
 #
 # Documentation: 
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html
 
-- name: test connection
+- name: Example from an Ansible Playbook
   ansible.builtin.ping:
 
 # Correct output:
@@ -22,17 +23,16 @@
     
 # Assignment 1.2 - Your first command!
 #
-# The goal of this assignment is to verify that commands can be run on the # test containers.
+# The goal of this assignment is to verify that commands can be run on the 
+# test containers.
 #
-# Your task is to use the "ansible.builtin.debug" module to print a 
-# certain message to the console.
+# Your task is to use the "ansible.builtin.debug" module to print the message "Hello world!" to the console.
 #
 # Documentation: 
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html#ansible-collections-ansible-builtin-debug-module
-
-- name: print statement
+- name: Prints "Hello world!"
   ansible.builtin.debug:
-    msg: "Hello world!"
+    msg: Hello world!
 
 # Correct output:
 # TASK [verification: <name>]
