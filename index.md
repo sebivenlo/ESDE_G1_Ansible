@@ -36,12 +36,16 @@ Unlike the Mac and Windows environment, the Unix installer does not automaticall
 ### General architecture
 As we will be using docker to setup the complete architecture a small architectural image is shown below:
 
+<img src="documentation/images/Architecture.svg">
+
 [General Architecture](documentation/images/Architecture.svg)
 
 What can be seen in this abstract architecture image is that a single "Docker compose" file is used to instantiate all services that are neccessary for the assignments. It makes sure that 4 containers are running for you to test on. Furthermore, there is an additional container called "ansible" that holds the Ansible environment. This will be the machine you will be working on mainly. Don't worry! Everything is an automatic process.
 
 ### File layout
 The following file structure will give you a general idea of which folders and files are located in which folders.
+
+<img src="documentation/images/File_layout.svg">
 
 [File layout](documentation/images/File_layout.svg)
 
