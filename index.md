@@ -86,6 +86,8 @@ Only once, you start the docker services using the command:
 docker-compose up --build -d
 ```
 
+**Be aware that this process can take a while!**
+
 #### Access ansible environment 
 Only once, you access the ansible docker container by using the command:
 ```
@@ -99,7 +101,9 @@ cd ansible/configuration
 ```
 
 #### Solve assignments
-Every single time you are working on an assignment in a file called "main.yml", which are located in the /roles/ directory. Start off by looking at the main file called "playbook.yml", this is your starting point. From here you will be directed to the assignments. Each assignment has a goal, task and a link to the documentation. (The answers are not hard to find in the documentation!)
+Every single time you are working on an assignment in a file called "main.yml", which are located in the /roles/ directory. Start off by looking at the main file called "playbook.yml", this is your starting point. From here you will be directed to the assignments. Each assignment has a goal, task and a link to the documentation. (The answers are not hard to find in the documentation!) 
+
+How we would advice you to work is to first start off with looking at the playbook.yml file in your favourite text editor (Visual Studio Code or for instance Notepad ++). Afterwards, you can choose the assignment to start with by going to the mentioned file. Once you made the assignments you can test it by running the command in the next section
 
 #### Execute ansible-playbook command
 Every single time you are ready to test your assigment you run the command:
@@ -110,7 +114,7 @@ If you want to shorten the duration of the execution, you can also run the comma
 ```
 ansible-playbook playbook.yml --extra-vars "ansible_sudo_pass=workshop" --tags="<tag_name>"
 ```
-where the tags flag is the assignment you are currently working on (either verification, printer, webserver or database)
+where the tags flag is the assignment you are currently working on (either verification, printer, webserver or database). you can also find the tag names in the playbook.yml file.
 
 #### Validate output
 Once you have completed your assigment you should check the expected output with your own output.
