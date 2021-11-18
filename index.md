@@ -68,13 +68,17 @@ In order to get you going on the workshop itself, you can start by taking a look
 
 <img src="documentation/images/Assignment_workflow.svg">
 
-[assignment workflow](documentation/images/Assignment_workflow.svg)
+[Assignment workflow](documentation/images/Assignment_workflow.svg)
+
+### Start Docker
+Before we start off, it is really important (for the Mac and Windows users) that your docker (desktop) service is running!
 
 #### Clone repository
 Only once, you clone the repository using the command:
 ```
 git clone https://github.com/sebivenlo/ESDE_G1_Ansible.git
 ```
+##### Change directory into the folder in which you cloned the repository!
 
 #### Start docker service containers
 Only once, you start the docker services using the command:
