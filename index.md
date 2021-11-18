@@ -62,6 +62,12 @@ The directory and "main.yml" located in the "roles" directory are the ones you s
 ## Assignment workflow
 In order to get you going on the workshop itself, you can start by taking a look at the image below. This image displays what the workflow of the assignment should be. It features the commands you should run in order to make the assignments (succesfully).
 
+<img
+    src="documentation/images/Assignment_workflow.svg"
+    alt="triangle with all three sides equal"
+    height="87"
+    width="100" />
+
 [assignment workflow](documentation/images/Assignment_workflow.svg)
 
 #### Clone repository
