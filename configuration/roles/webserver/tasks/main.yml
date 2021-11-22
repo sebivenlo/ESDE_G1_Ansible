@@ -1,0 +1,106 @@
+---
+# Assignment 3.1 - Install nginx
+#
+# The goal of this assignment is to install the nginx webserver package on 
+# the target machine.
+#
+# Your task is to use to use the "ansible.builtin.apt" module to install 
+# the nginx package.
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
+
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+
+# Correct output:
+# TASK [webserver : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# ok: [test_container_4]        or  changed: [test_container_4]
+
+# Assignment 3.2 - Start nginx web server
+#
+# The goal of this assignment is to start a nginx webserver on the target 
+# machine.
+#
+# Your task is to use the "ansible.builtin.service" module to start an 
+# Ansible webserver on the target machine.
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+
+- name: Start service nginx, if not started
+  service:
+    name: nginx
+    state: started
+
+# Correct output:
+# TASK [webserver : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# ok: [test_container_4]          or  changed: [test_container_4]
+
+# Assignment 3.3 - Retrieve IP address of the host machine
+#
+# The goal of this assignment is to retrieve the IP address of the host 
+# which is running the nginx web server.
+#
+# Your task is to use the "ansible.builtin.shell" module to run a command 
+# to get the IP address of the target machine (You can use the command "ip a" to find out the IP address). 
+# Afterwards save the output in a variable, which you should already know 
+# how to do (Assignment 2.3).
+#
+# TIP: the command "grep inet" might be useful here (of course separated 
+# by a pipe operator "|")
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
+
+- name:  Retrieve IP address of the host machine
+  ansible.builtin.shell: ip a | grep inet
+  register: variableipaddress
+
+# Correct output:
+# TASK [webserver : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# ok: [test_container_4]        or  changed: [test_container_4]
+
+# Assignment 3.4 - Print the registered variable and access server
+#
+# The goal of this assignment is to print the registered variable and 
+# finally access your own nginx webserver instance!
+#
+# Your task is to print the registered variable into the terminal by using 
+# the "ansible.builtin.debug" module in combination with a bracket notation.
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html
+
+- name: Print the registered variable
+  ansible.builtin.debug:
+    msg: Ip address - {{ variableipaddress.stdout_lines }} -
+
+# Correct output:
+# TASK [webserver : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# ok: [test_container_4] => {
+#     "msg": [
+#         "    inet 127.0.0.1/8 scope host lo",
+#         "    inet 172.18.0.5/16 brd 172.18.255.255 scope global eth0"
+#     ]
+# }
+
+# Now, what you can do is use the inet address (most likely) starting with 
+# "172" to access your new nginx webserver.
+#
+# To access it go to your favourite browser and type in the following URL:
+# http://<Your url

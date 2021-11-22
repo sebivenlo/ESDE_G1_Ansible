@@ -1,0 +1,18 @@
+---
+- name: "Install packages"
+  apt: "name={{ item }} state=present"
+  with_items:
+    - postgresql
+
+- name: "Install Python packages"
+  pip: "name={{ item }}  state=present"
+  with_items:
+    - psycopg2-binary
+
+- name: "Find out if PostgreSQL is initialized"
+  ansible.builtin.stat:
+    path: "/var/lib/pgsql/data/pg_hba.conf"
+  register: postgres_data
+
+- name: "Start postgresql service"
+  shell: "/etc/init.d/postgresql start"

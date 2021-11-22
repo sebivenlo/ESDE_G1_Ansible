@@ -1,18 +1,42 @@
 ---
-- hosts: database
+- hosts: all
+  become: yes
 
   tasks:
-    - name: test connection
-      ping:
-  tasks: 
-    - name: print statement
-      ansible.builtin.debug: 
-        msg: Hello world!
-  tasks:
-    - name: create database
-      community.mongodb.mongodb_user:
-        login_host: mongo_container
-        login_user: root
-        login_password: example
-        database: admin
-        name: root
+# Assignment 1 - Find the task at: /roles/verification/tasks/main.yml
+  - name: Verify connection to host machines
+    import_role:
+      name: verification
+    tags: verification
+
+# Assignment 2 - Find the task at: /roles/printer/tasks/main.yml
+  - name: Print contents of a file
+    when: inventory_hostname in groups['default_container']
+    import_role:
+      name: printer
+    tags: printer
+
+# Assignment 3 - Find the task at: /roles/webserver/tasks/main.yml
+  - name: Install and start nginx
+    when: inventory_hostname in groups['web_container']
+    import_role:
+      name: webserver
+    tags: webserver
+    
+# No assignment to be found here!
+  - name: Install and setup PostgreSQL on host
+    when: inventory_hostname in groups['database']
+    import_role:
+      name: database
+      tasks_from: install
+    tags: database
+
+# Assignment 4 - Find the task at: /roles/database/tasks/main.yml
+  - name: PostgreSQL database interaction
+    when: inventory_hostname in groups['database']
+    become: yes
+    become_user: postgres
+    import_role:
+      name: database
+      tasks_from: main
+    tags: database

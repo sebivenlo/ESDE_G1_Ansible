@@ -5,7 +5,7 @@ version: "3.3"
 services:
   ansible:
     build:
-      context: ./ansible/
+      context: ./dockerfiles/ansible/
       dockerfile: Dockerfile
     container_name: ansible_container
     hostname: ansible_host
@@ -20,7 +20,7 @@ services:
 
   test1:
     build:
-      context: ./test/
+      context: ./dockerfiles/test/
       dockerfile: Dockerfile
     container_name: test_container_1
     hostname: test_container_1
@@ -31,18 +31,21 @@ services:
 
   test2:
     build:
-      context: ./test/
+      context: ./dockerfiles/database/
       dockerfile: Dockerfile
     container_name: test_container_2
     hostname: test_container_2
     ports:
       - 22:22
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: workshop
     networks:
       internal:
 
   test3:
     build:
-      context: ./test/
+      context: ./dockerfiles/git/
       dockerfile: Dockerfile
     container_name: test_container_3
     hostname: test_container_3
@@ -53,7 +56,7 @@ services:
 
   test4:
     build:
-      context: ./test/
+      context: ./dockerfiles/test/
       dockerfile: Dockerfile
     container_name: test_container_4
     hostname: test_container_4
@@ -61,21 +64,6 @@ services:
       - 22:22
     networks:
       internal:
-
-  mongo:
-    build:
-      context: ./database/
-      dockerfile: Dockerfile
-    container_name: mongo_container
-    hostname: mongo_container
-    ports:
-      - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: test
-    networks:
-      internal: 
 
 networks: 
   internal:

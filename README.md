@@ -1,9 +1,3 @@
-### Abstract
+# Ansible
 
-### Table of contents
-
-### Introduction
-
-1. What is 
-2. asdasd
-{:toc}
+The documentation and documents related to the workshop can be found by clicking [this](https://sebivenlo.github.io/ESDE_G1_Ansible/#unix-environment) link
