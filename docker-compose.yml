@@ -24,8 +24,6 @@ services:
       dockerfile: Dockerfile
     container_name: test_container_1
     hostname: test_container_1
-    ports:
-      - 22:22
     networks:
       internal:
 
@@ -36,7 +34,6 @@ services:
     container_name: test_container_2
     hostname: test_container_2
     ports:
-      - 22:22
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: workshop
@@ -49,8 +46,6 @@ services:
       dockerfile: Dockerfile
     container_name: test_container_3
     hostname: test_container_3
-    ports:
-      - 22:22
     networks:
       internal:
 
@@ -60,8 +55,6 @@ services:
       dockerfile: Dockerfile
     container_name: test_container_4
     hostname: test_container_4
-    ports:
-      - 22:22
     networks:
       internal:
 
