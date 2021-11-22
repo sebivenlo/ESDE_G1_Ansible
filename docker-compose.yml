@@ -55,6 +55,8 @@ services:
       dockerfile: Dockerfile
     container_name: test_container_4
     hostname: test_container_4
+    ports:
+      - 80:80
     networks:
       internal:
 
