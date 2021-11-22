@@ -9,8 +9,9 @@
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
-- name: Create file tryAssignment.txt
-  ansible.builtin.shell: touch tryAssignmen.txt
+
+# Solve the assignment here:
+
 
 
 # Correct output:

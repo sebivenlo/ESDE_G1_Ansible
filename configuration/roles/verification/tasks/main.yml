@@ -11,8 +11,9 @@
 # Documentation: 
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html
 
-- name: Example from an Ansible Playbook
-  ansible.builtin.ping:
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [verification : <name>]
@@ -30,9 +31,10 @@
 #
 # Documentation: 
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html#ansible-collections-ansible-builtin-debug-module
-- name: Prints "Hello world!"
-  ansible.builtin.debug:
-    msg: Hello world!
+
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [verification: <name>]

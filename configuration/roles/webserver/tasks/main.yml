@@ -10,10 +10,9 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
 
-- name: Install nginx
-  apt:
-    name: nginx
-    state: present
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [webserver : <name>]
@@ -33,10 +32,9 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
 
-- name: Start service nginx, if not started
-  service:
-    name: nginx
-    state: started
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [webserver : <name>]
@@ -61,9 +59,9 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 
-- name:  Retrieve IP address of the host machine
-  ansible.builtin.shell: ip a | grep inet
-  register: variableipaddress
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [webserver : <name>]
@@ -83,9 +81,9 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html
 
-- name: Print the registered variable
-  ansible.builtin.debug:
-    msg: Ip address - {{ variableipaddress.stdout_lines }} -
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [webserver : <name>]

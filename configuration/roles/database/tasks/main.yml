@@ -9,9 +9,9 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/community/postgresql/postgresql_db_module.html#ansible-collections-community-postgresql-postgresql-db-module
 
-- name: Create a new database with name "tryme"
-  postgresql_db:
-    name: tryme
+# Solve the assignment here:
+
+
 
 # Correct output:
 # TASK [database : <name>]
