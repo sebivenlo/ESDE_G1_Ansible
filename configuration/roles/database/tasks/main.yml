@@ -33,15 +33,6 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/community/postgresql/postgresql_table_module.html
 
-- name: Create table user 
-  postgresql_table:
-    db: tryme
-    name: user_table
-    columns:
-    - id bigserial primary key
-    - first_name text
-    - last_name text
-
 
 # Correct output:
 # TASK [database : <name>]
@@ -65,10 +56,6 @@
 # TIPS: To make it a bit easier you can use the "ON CONFLICT DO NOTHING" 
 # setting to avoid conflicts with your query.
 
-- name: Simple insert query
-  postgresql_query:
-    db: tryme
-    query: INSERT INTO user_table(id, first_name, last_name) VALUES(1, 'Guus', 'Damen') ON CONFLICT DO NOTHING
 
 # Correct output:
 # TASK [database : <name>]
@@ -90,15 +77,6 @@
 # Documentation:
 # https://docs.ansible.com/ansible/2.9/modules/postgresql_query_module.html
 
-- name: Simple select query
-  postgresql_query:
-    db: tryme
-    query: SELECT * FROM user_table
-  register: result
-
-- name: Print the registered variable
-  ansible.builtin.debug:
-    msg: Result - {{ result }} -
 
 # Correct output:
 # If you see the data you've inserted into the database, it should be 

@@ -12,7 +12,8 @@
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html
 
 # Solve the assignment here:
-
+- name: test
+  ansible.builtin.ping:
 
 
 # Correct output:
