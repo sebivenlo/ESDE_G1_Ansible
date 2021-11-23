@@ -32,8 +32,6 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
 
-- name: Write to a file tryAssignment.txt
-  ansible.builtin.shell: echo "My message in the file!" >> tryAssignmen.txt
 
 # Correct output:
 # TASK [printer : <name>]
@@ -55,10 +53,6 @@
 # Documentation:
 # https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
 
-- name: Run a shell command and register its output as a variable
-  ansible.builtin.shell: cat tryAssignmen.txt
-  register: secondvariablee
-  ignore_errors: true
 
 # Correct output:
 # TASK [printer : <name>]
@@ -76,10 +70,6 @@
 #
 # Documentation:
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html
-
-- name: Print the registered variable
-  ansible.builtin.debug:
-    msg: I saved this as a variale - {{ secondvariablee.stdout_lines }} -
 
 # Correct output: 
 # TASK [printer : <name>]
