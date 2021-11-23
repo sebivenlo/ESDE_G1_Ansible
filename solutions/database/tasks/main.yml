@@ -1,0 +1,101 @@
+---
+# Assignment 4.1 - Create new database
+#
+# The goal of this assignment is to create a new PostgreSQL database
+#
+# Your task is to use to use the "postgresql_db" 
+# (community) module to create a new database.
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/community/postgresql/postgresql_db_module.html#ansible-collections-community-postgresql-postgresql-db-module
+
+- name: Create a new database with name "acme"
+  postgresql_db:
+    name: acme
+
+# Correct output:
+# TASK [database : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
+# [WARNING]: Using world-readable permissions for temporary files Ansible needs to create when becoming an unprivileged user. This may be insecure. For information on securing this, see https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user
+# ok: [test_container_2]
+
+# Assignment 4.2 - Create your first table
+#
+# The goal of this assignment is to create a table with a set of  
+# columns
+#
+# Your task is to use the "postgresql_db" (community) module to create the # a table and add the columns "id" (primary key), "first_name" and 
+# "last_name" to the table
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/community/postgresql/postgresql_table_module.html
+
+- name: Create user_table table with columns id, first_name and last_name
+  postgresql_table:
+    db: acme
+    name: user_table
+    columns:
+    - id bigserial primary key
+    - first_name text
+    - last_name text
+
+# Correct output:
+# TASK [database : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
+# [WARNING]: Using world-readable permissions for temporary files Ansible needs to create when becoming an unprivileged user. This may be insecure. For information on securing this, see https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user
+# ok: [test_container_2]
+
+# Assignment 4.3 - Insert into database using a query
+#
+# The goal of this assignment is to insert data into your table 
+# using a query
+#
+# Your task is to use the "postgresql_query" (community) module to 
+# insert data into your table
+#
+# Documentation:
+# https://docs.ansible.com/ansible/2.9/modules/postgresql_query_module.html
+#
+# TIPS: To make it a bit easier you can use the "ON CONFLICT DO NOTHING" 
+# setting to avoid conflicts with your query.
+
+- name: Insert query to user_table in db acme
+  postgresql_query:
+    db: acme
+    query: INSERT INTO user_table(id, first_name, last_name) VALUES(1, 'Guus', 'Damen') ON CONFLICT DO NOTHING
+
+# Correct output:
+# TASK [database : <name>]
+# skipping: [test_container_1]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
+# [WARNING]: Using world-readable permissions for temporary files Ansible needs to create when becoming an unprivileged user. This may be insecure. For information on securing this, see https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user
+# ok: [test_container_2]
+
+# Assignment 4.4 - Select all using a query
+#
+# The goal of this assignment is to retrieve the data you have inserted 
+# into the database
+#
+# Your task is to use the "postgresql_query" (community) module to 
+# retrieve data from the database table
+#
+# Documentation:
+# https://docs.ansible.com/ansible/2.9/modules/postgresql_query_module.html
+
+- name: Select all users from user_table in db acme
+  postgresql_query:
+    db: acme
+    query: SELECT * FROM user_table
+  register: query_result
+
+- debug:
+    var: query_result
+
+# Correct output:
+# If you see the data you've inserted into the database, it should be 
+# correct!

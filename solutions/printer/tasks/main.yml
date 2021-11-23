@@ -1,0 +1,84 @@
+---
+# Assignment 2.1 - Create a file on target machine
+#
+# The goal of this assignment is to use another module called 
+# "ansible.builtin.shell" to execute a shell command on the target machine
+#
+# Your task is to make use of the "ansible.builtin.shell" module to create # a file on the target machine by executing a certain command. (If you do # not know the specific command to create a file on a unix device, ask us).
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
+
+- name: Create a file called "hello.txt"
+  ansible.builtin.shell: touch hello.txt
+
+# Correct output:
+# TASK [printer: <name>]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
+# changed: [test_container_1]
+
+# Assignment 2.2 - Add text to the created file on target machine
+#
+# The goal of this assignment is to use yet another shell command to write # a string into the newly created file on the target machine
+#
+# Your task is to use the "ansible.builtin.shell" module to write 
+# something to the newly created file. (If you do not know the specific 
+# command to create a file on a unix device, ask us).
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html#ansible-collections-ansible-builtin-shell-module
+
+- name: Add text "hello world" to file "hello.txt"
+  ansible.builtin.shell: echo "hello world!" >> hello.txt
+
+# Correct output:
+# TASK [printer : <name>]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
+# changed: [test_container_1]
+
+# Assignment 2.3 - Read message from created file
+#
+# The goal is to learn about registered variables and how to use them in 
+# Ansible
+#
+# Your task is to use the "ansible.builtin.shell" module in combination 
+# with variables
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
+
+- name: Read file
+  ansible.builtin.shell: cat hello.txt
+  register: result
+
+# Correct output:
+# TASK [printer : <name>]
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
+# changed: [test_container_1]
+
+# Assignment 2.4 - Print the registered variable
+#
+# The goal is to learn more about the applications of variables
+#
+# Your task is to print the registered variable into the terminal by using # the "ansible.builtin.debug" module in combination with a bracket notation
+#
+# Documentation:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html
+
+- name: Print file
+  ansible.builtin.debug:
+    msg: "{{ result.stdout }}"
+
+# Correct output: 
+# TASK [printer : <name>]
+# ok: [test_container_1] => {
+#     "msg": "Test\nhello world!
+# skipping: [test_container_2]
+# skipping: [test_container_3]
+# skipping: [test_container_4]
