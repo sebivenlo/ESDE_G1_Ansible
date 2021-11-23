@@ -14,9 +14,7 @@
 # Solve the assignment here:
 - name: test
   ansible.builtin.ping:
-
-
-# Correct output:
+  
 # TASK [verification : <name>]
 # ok: [test_container_x]
 # ok: [test_container_x]
